@@ -1,0 +1,255 @@
+.header {
+	position: relative;
+	justify-content: space-around;
+	background-color: #5ea19a;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	margin-bottom: toRem(40);
+	position: relative;
+	//border: 5px solid;
+	//border-image-source: linear-gradient(-90deg, #32868b, #aededa, #32868b);
+	//border-image-slice: 10;
+	box-shadow: 7px 7px 10px rgb(169, 167, 167);
+	@include adaptiveValue("padding", 20, 15, 10, $containerWidth, 767.98);
+	@media (max-width: toEm(479.98)) {
+		border: none;
+	}
+	@media (min-width: toEm(798.8)) {
+	}
+	@media (max-width: toEm(767.98)) {
+		column-gap: 20px;
+	}
+	// Главный заголовок
+	&__title {
+		min-width: toRem(300);
+		position: relative;
+		z-index: 4;
+		font-size: toRem(40);
+		font-weight: 700;
+		display: flex;
+		@include adaptiveValue("gap", 20, 10);
+		@include adaptiveValue("padding-left", 10, 5);
+		align-items: center;
+		justify-content: center;
+
+		align-self: flex-start;
+		justify-self: flex-end;
+		color: #1b5255;
+		//!О Т Р И Ц А Т Е Л Ь Н Ы Й МАРДЖИН!
+
+		letter-spacing: 4px;
+		text-shadow: 2px 2px 3px rgba(255, 251, 251, 0.766);
+		@include adaptiveValue("margin-bottom", 15, 10, 8);
+		@include adaptiveValue(
+			"font-size",
+			50,
+			34,
+			24,
+			$containerWidth,
+			767.98
+		);
+
+		@media (max-width: toEm(710)) {
+			display: flex;
+			flex-wrap: wrap;
+			justify-self: center;
+			text-align: center;
+			column-gap: toRem(25);
+		}
+		@media (max-width: toEm(479.98)) {
+			display: flex;
+			flex-wrap: wrap;
+			justify-self: center;
+			text-align: center;
+			margin-bottom: 0px;
+		}
+	}
+	//  ЛОГОТИП
+	//&__title::after {
+	//	content: "";
+	//	position: absolute;
+	//	background: url("../img/list.png") 0 0 no-repeat;
+	//	width: 50px;
+	//	height: 50px;
+	//	top: -7%;
+	//	left: 92%;
+	//	z-index: -1;
+	//}
+
+	&__title::before {
+		//font-family: 'Noto Sans Batak';
+		content: "IK";
+		font-family: "Merriweather";
+		font-weight: normal;
+		@include adaptiveValue("font-size", 40, 30, 26);
+		color: $dgreyColor;
+		letter-spacing: toRem(4);
+		border: 4px solid $dgreyColor;
+		box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.6);
+		padding: 18px 11px 18px 15px;
+		border-radius: 50%;
+		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); // Добавляем тень для текста
+		z-index: 4;
+	}
+	@media (max-width: toEm(540)) {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	@media (max-width: toEm(479.98)) {
+		display: flex;
+		flex-wrap: wrap;
+		font-size: toRem(20);
+	}
+}
+.header__title::before {
+	animation: rotate 7s linear forwards; // Применяем анимацию
+}
+@keyframes rotate {
+	from {
+		transform: rotate(0deg); // Начальное положение - 0 градусов
+	}
+	to {
+		transform: rotate(360deg); // Конечное положение - 360 градусов
+	}
+}
+
+///~Навигация///
+.nav {
+	@media (max-width: toEm(540)) {
+		font-size: toEm(24);
+		display: flex;
+		flex-wrap: wrap;
+		justify-self: center;
+		text-align: center;
+	}
+}
+//~Cnucok//
+.list-menu {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 100%;
+	@include adaptiveValue("column-gap", 40, 15, 10, $containerWidth, 767.98);
+	@include adaptiveValue("font-size", 16, 12, 10, $containerWidth, 479.98);
+	@media (max-width: toEm(539)) {
+		position: absolute;
+		left: 50%;
+		top: 95%;
+		transform: translatex(-50%);
+	}
+	&__item {
+		@include adaptiveValue("font-size", 26, 18, 12);
+		@media (max-width: toEm(840)) {
+			display: flex;
+			flex-wrap: wrap;
+			justify-self: center;
+			text-align: center;
+		}
+		@media (max-width: toEm(540)) {
+			padding-top: 3%;
+			display: flex;
+			flex-wrap: wrap;
+			justify-self: center;
+			text-align: center;
+		}
+	}
+}
+
+//~Cсылка//
+.link {
+	position: relative;
+	text-align: center;
+	align-self: center;
+
+	border-radius: 24px;
+	color: $dgreyColor;
+	@include adaptiveValue("padding", 8, 5);
+	text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.7); // Добавляем тень для текста
+	@media (max-width: toEm(840)) {
+		flex-wrap: wrap;
+		justify-self: center;
+		text-align: center;
+	}
+
+	@media (max-width: toEm(539)) {
+		color: $dmainColor;
+		padding-top: 12px;
+		text-shadow: 2px 2px 3px rgba(131, 126, 126, 0.7);
+		&:active {
+			text-decoration: underline;
+		}
+	}
+	@media (any-hover: hover) {
+		&:hover {
+			color: white;
+		}
+	}
+
+	&::before {
+		content: "";
+		height: toRem(2);
+		background-color: white;
+		position: absolute;
+		top: 100%;
+		width: 0;
+		left: 50%;
+		transition: all 0.5s;
+		border-radius: toRem(2);
+		margin-top: toRem(2);
+	}
+	@media (any-hover: hover) {
+		&:hover {
+			&::before {
+				width: 100%;
+				left: 0;
+			}
+		}
+	}
+	@media (max-width: toEm(767.98)) {
+		&:hover {
+			&::before {
+				margin-top: toRem(0);
+			}
+		}
+	}
+}
+//        Анимация  Link .........
+$animation-duration1: 3s; // Длительность анимации
+$animation-duration2: 2.9s; // Длительность анимации
+$animation-duration3: 3s; // Длительность анимации
+
+@keyframes moveUpDown1 {
+	0%,
+	100% {
+		transform: translateY(
+			0
+		); // Начальное и конечное состояние (нет движения)
+	}
+	50% {
+		transform: translateY(-3px); // Среднее состояние (движение вверх)
+	}
+}
+@keyframes moveUpDown2 {
+	0%,
+	100% {
+		transform: translateY(
+			0
+		); // Начальное и конечное состояние (нет движения)
+	}
+	50% {
+		transform: translateY(-6px); // Среднее состояние (движение вверх)
+	}
+}
+.animated-word1 {
+	word-wrap: unset;
+}
+//.animated-word1 {
+//	animation: moveUpDown1 $animation-duration1 ease-in-out infinite; // Применяем анимацию
+//}
+//.animated-word2 {
+//	animation: moveUpDown2 $animation-duration2 ease-in-out infinite; // Применяем анимацию
+//}
+//.animated-word3 {
+//	animation: moveUpDown1 $animation-duration3 ease-in-out infinite; // Применяем анимацию
+//}

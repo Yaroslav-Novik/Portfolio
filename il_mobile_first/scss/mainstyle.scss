@@ -1,0 +1,70 @@
+@use "sass:math";
+// Мінімальна ширина сторінки
+$minWidth: 320;
+// Ширина полотна (макету)
+$maxWidth: 1920;
+// Ширина обмежуючого контейнера (0 = немає обмеження)
+$maxWidthContainer: 1170;
+// Загальний відступ у контейнера
+// (30 = по 15px ліворуч і праворуч, 0 = немає відступу)
+$containerPadding: 30;
+// Ширина спрацьовування першого брейкпоінту
+$containerWidth: $maxWidthContainer + $containerPadding;
+// Брейк-поїнти
+$pc: toEm(
+	$containerWidth
+); // ПК, ноутбуки, деякі планшети у горизонтальному положенні
+$tablet: toEm(991.98); // Планшети, деякі телефони в горизонтальному положенні
+$mobile: toEm(767.98); // Телефони L
+$mobileSmall: toEm(479.98); // Телефони S
+
+@import "_reset.scss";
+@import "_fonts.scss";
+@import "_function.scss";
+@import "_common.scss";
+@import "_main.scss";
+@import "_header.scss";
+@import "_spoilers.scss";
+@import "_footer.scss";
+html {
+	scroll-behavior: smooth;
+}
+.wrapper {
+	font-family: "Merriweather";
+	min-height: 100%;
+	overflow: clip;
+	background-color: $lgreyColor;
+
+	//	background: rgb(255,255,255);
+	//background: linear-gradient(90deg, rgb(197, 246, 184), rgba(255,255,255,1) 50%,  rgb(197, 246, 184) 100%);
+}
+.general-container {
+	//border-left: 2px solid $mainColor;
+	//border-right: 2px solid $mainColor;
+	max-width: toRem(1230);
+
+	margin: 0 auto;
+
+	//background: rgb(255, 255, 255);
+	//background: radial-gradient(
+
+	//	circle,
+	//	rgba(255, 255, 255, 1) 25%,
+	//	rgba(150, 204, 135, 1) 100%
+	//);
+
+	@media (max-width: toEm(540)) {
+	}
+}
+//.header::after {
+//	position: absolute;
+//	content: "";
+//	width: 85%;
+//	height: 2px;
+//	background-color: #5ea19a;
+//	bottom: -25px;
+//	left: 50%;
+//	transform: translate(-50%, -50%);
+//}
+
+// _----------------------------------------M A I N ----------------------------------------

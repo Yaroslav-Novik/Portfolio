@@ -1,0 +1,291 @@
+.deco-wrapper {
+	@include adaptiveValue("margin-bottom", 45, 40);
+	@include adaptiveValue("margin-top", 45, 30);
+	width: 80%;
+	background-color: $mainColor;
+	border-radius: 50%;
+	margin: 0 auto;
+	position: relative;
+	font-size: toRem(0);
+	opacity: 1;
+	&::before {
+		margin-left: 20px;
+		content: "";
+		position: absolute;
+		width: 40%;
+		height: 3px;
+		background-color: $mainColor;
+		top: 50%;
+		transform: translatey(-50%);
+		right: 0;
+	}
+	&::after {
+		margin-right: 20px;
+		content: "";
+		position: absolute;
+		width: 40%;
+		height: 3px;
+		top: 50%;
+		left: 0;
+		background-color: $mainColor;
+		transform: translatey(-50%);
+	}
+}
+.deco {
+	width: 100%;
+	margin: 0 auto;
+	position: relative;
+	font-size: toRem(0);
+	opacity: 1;
+
+	&::before {
+		content: "";
+		position: absolute;
+		width: 20px;
+		height: 20px;
+		border-radius: 50%;
+		background-color: $mainColor;
+
+		top: -10px;
+		left: 50%; /* Изменено с "right" на "left" */
+		transform: translateX(-50%); /* Центрирование по горизонтали */
+	}
+}
+.main {
+	&__container {
+		max-width: 1230px;
+		margin: 0 auto;
+		@include adaptiveValue("padding", 25, 15, 15, $containerWidth, 767.98);
+	}
+	@media (max-width: toEm(540)) {
+	}
+	&__imagecontainer {
+		padding: toRem(10);
+		max-width: 600px;
+		flex: 0 0 500px;
+		margin-bottom: toEm(20);
+		align-self: center;
+
+		@media (max-width: toEm(710)) {
+			font-size: toEm(28);
+			display: flex;
+			flex-wrap: wrap;
+			justify-self: center;
+			text-align: center;
+			margin-bottom: toEm(10);
+		}
+		@media (max-width: toEm(540)) {
+			max-height: 450px;
+			font-size: toRem(24);
+			display: flex;
+			flex-wrap: wrap;
+			justify-self: center;
+			text-align: center;
+			margin-bottom: toEm(10);
+		}
+	}
+	&__image {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: bottom;
+		border-top-left-radius: 100px;
+		border-bottom-right-radius: 100px;
+		box-shadow: 7px 7px 7px rgb(169, 167, 167);
+	}
+}
+.hero {
+	&__wrapper {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+
+		@media (max-width: toEm(710)) {
+			font-size: toEm(28);
+			font-size: toRem(24);
+			align-items: center;
+		}
+	}
+
+	&__body {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+
+		align-self: center;
+		justify-self: center;
+		@include adaptiveValue("row-gap", 10, 8, 5, $containerWidth, 767.98);
+	}
+	//---------Заголовок им'я
+	&__title {
+		position: relative;
+		letter-spacing: 4px;
+		text-align: center;
+		align-self: center;
+		padding: 7px 12px;
+		border-radius: 24px;
+		font-weight: normal;
+		z-index: 5;
+		color: grey;
+		text-shadow: 4px 4px 4px white;
+		@include adaptiveValue(
+			"font-size",
+			70,
+			38,
+			26,
+			$containerWidth,
+			767.98
+		);
+		@media (max-width: toEm(540)) {
+			letter-spacing: 2px;
+			text-shadow: 4px 4px 4px white;
+		}
+	}
+	//&__subtitle {
+	//	line-height: 100%;
+	//	letter-spacing: 4px;
+	//	font-family: "Philosopher", serif;
+	//	font-weight: bold;
+	//	text-align: center;
+	//	color: $dmainColor;
+	//	text-shadow: 2px 2px 3px rgba(103, 100, 100, 0.7);
+	//	@include adaptiveValue(
+	//		"font-size",
+	//		48,
+	//		32,
+	//		26,
+	//		$containerWidth,
+	//		767.98
+	//	);
+	//}
+}
+
+// --------------------Маркированный список------------------- //
+.list-wrapper {
+	width: 100%;
+}
+.marked-list {
+	@include adaptiveValue("padding", 30, 20, 15);
+	border-top-left-radius: 50px;
+	border-bottom-right-radius: 50px;
+	background-color: $mainColor;
+	opacity: 0.7;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+
+	box-shadow: 5px 5px 7px rgb(169, 167, 167);
+	//filter: drop-shadow(5px -5px  5px #5ea19a);
+	text-shadow: 3px 4px 4px #646968;
+	@include adaptiveValue("row-gap", 25, 15, 10);
+	@include adaptiveValue("font-size", 24, 20, 10);
+	&__item {
+		line-height: math.div(33, 23);
+		@include adaptiveValue("row-gap", 20, 15, 10);
+
+		line-height: math.div(33, 23);
+		@include adaptiveValue("row-gap", 20, 15, 10);
+		text-align: left;
+		position: relative;
+		@include adaptiveValue("padding-left", 60, 50, 40);
+	}
+
+	&__item::before {
+		box-sizing: border-box;
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: 0;
+
+		transform: translateY(-50%);
+		background: url("../img/svg-icons/vector.svg") 0px -1px no-repeat;
+		box-shadow: 1px 1px 3px rgb(90, 88, 88);
+		background-color: #fff;
+		width: 26px;
+		height: 26px;
+		border-radius: 50%;
+		@media (max-width: toEm(540)) {
+			box-shadow: 1px 1px 3px rgb(90, 88, 88);
+			background-color: #90eb71;
+
+			background: url("../img/svg-icons/vector.svg") -2px -3px no-repeat;
+			background-position: cover;
+			background-color: #fff;
+			height: 22px;
+			width: 23px;
+		}
+	}
+}
+.--list-margin {
+	@include adaptiveValue("margin-bottom", 30, 20, 10);
+}
+.list1 {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+	padding: 50px;
+}
+.item1 {
+	position: relative;
+	padding-left: 40px;
+	box-sizing: border-box;
+}
+.item1::before {
+	box-sizing: border-box;
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 0;
+	background-color: #fff;
+	transform: translateY(-50%);
+	background-image: url("../img/vector.svg");
+	background-size: cover;
+	width: 29px;
+	height: 29px;
+	border-radius: 50%;
+	filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.7));
+}
+
+.suptitle {
+	font-family: "Philosopher", serif;
+	text-align: center;
+	@include adaptiveValue("font-size", 40, 25, 18, $containerWidth, 767.98);
+	color: $dmainColor;
+
+	@include adaptiveValue("margin-bottom", 30, 10, 8);
+}
+
+.sertificates__gallery {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	@include adaptiveValue("gap", 30, 15);
+}
+
+.img-wrapper {
+	flex: 0 0 28%;
+
+	@media (max-width: toEm(710)) {
+		flex: 0 0 40%;
+		max-width: 320;
+	}
+	@media (max-width: toEm(540)) {
+		flex: 0 0 100%;
+	}
+}
+
+.sert {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	aspect-ratio: 240/167;
+}
+.sert-v {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	aspect-ratio: 9/13;
+	max-height: 800px;
+}
